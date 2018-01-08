@@ -1,0 +1,14 @@
+-- Label    : L01
+-- Label    : L02
+--Variable : B memory @ 10
+--Variable : C memory @ 11
+--Variable : O memory @ 12 
+PUSH	B
+PUSH	C
+ADD	
+POP	O
+JMP	L02
+
+L01
+
+JMP	L02

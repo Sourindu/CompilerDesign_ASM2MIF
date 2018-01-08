@@ -1,0 +1,5 @@
+chapter 3 example 3.17 (fixed point c) , experimenrts 3.1
+chapter 3 experiments 3.2 (block FIR)
+
+intrinsics\n\n experiments 4.4
+book pg 185&186

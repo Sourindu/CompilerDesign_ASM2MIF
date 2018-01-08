@@ -1,0 +1,94 @@
+
+Grammar
+rule 1    program ->		/* empty */
+rule 2    program -> program exp '\n'
+rule 3    exp -> NUMBER
+rule 4    exp -> NUMBER '+' NUMBER
+
+Terminals, with rules where they appear
+
+$ (-1)
+'\n' (10) 2
+'+' (43) 4
+error (256)
+NUMBER (257) 3 4
+
+Nonterminals, with rules where they appear
+
+program (6)
+    on left: 1 2, on right: 2
+exp (7)
+    on left: 3 4, on right: 2
+
+
+state 0
+
+    $default	reduce using rule 1 (program)
+
+    program	go to state 1
+
+
+
+state 1
+
+    program  ->  program . exp '\n'   (rule 2)
+
+    $   	go to state 7
+    NUMBER	shift, and go to state 2
+
+    exp 	go to state 3
+
+
+
+state 2
+
+    exp  ->  NUMBER .   (rule 3)
+    exp  ->  NUMBER . '+' NUMBER   (rule 4)
+
+    '+' 	shift, and go to state 4
+
+    $default	reduce using rule 3 (exp)
+
+
+
+state 3
+
+    program  ->  program exp . '\n'   (rule 2)
+
+    '\n'	shift, and go to state 5
+
+
+
+state 4
+
+    exp  ->  NUMBER '+' . NUMBER   (rule 4)
+
+    NUMBER	shift, and go to state 6
+
+
+
+state 5
+
+    program  ->  program exp '\n' .   (rule 2)
+
+    $default	reduce using rule 2 (program)
+
+
+
+state 6
+
+    exp  ->  NUMBER '+' NUMBER .   (rule 4)
+
+    $default	reduce using rule 4 (exp)
+
+
+
+state 7
+
+    $   	go to state 8
+
+
+
+state 8
+
+    $default	accept

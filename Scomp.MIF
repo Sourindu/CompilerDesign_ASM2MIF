@@ -1,0 +1,40 @@
+
+--This Program Converts SCOMP Microprocessor Assembly File to Machine Instruction File *.MIF--
+
+--Developed By : Sourindu Chatterjee--
+--Organisation : Florida State University--
+--Reference From T-RISC Program by Dr. Uwe Meyer-Baese--
+DEPTH = 256;                    % Memory depth and width are required      %
+WIDTH = 16;                     % Enter a decimal number                   %
+ADDRESS_RADIX = HEX;            % Address and value radixes are optional   %
+DATA_RADIX = HEX;               % Enter BIN, DEC, HEX, or OCT; unless      %
+                                % otherwise specified, radixes = HEX       %
+       -- Specify values for addresses, which can be single address or range
+CONTENT
+  BEGIN
+
+[00..FF] : 0000;   % Range--Every address from 00 to FF = 0000 (Default) %
+00  : 021e;  -- LOAD  B
+01  : 001f;  -- ADD  C
+02  : 0120;  -- STORE  A
+03  : 071e;  -- OR  B
+04  : 030a;  -- JUMP  L5
+05  : 0B20;  -- ADDI  0x20 (Hexadecimal Value)
+06  : 0403;  -- JNEG  L1
+07  : 0021;  -- ADD  X
+08  : 0522;  -- SUBT  Y
+09  : 0CFC;  -- SUBI  -4 (Deciaml Value)
+0a  : 051e;  -- SUBT  B
+0b  : 0BFF;  -- ADDI  -1 (Deciaml Value)
+0c  : 030d;  -- JUMP  L3
+0d  : 0024;  -- ADD  D
+0e  : 0908;  -- JPOS  L2
+-------------------------------------------------------------------
+0f  : 030f;  -- JUMP  Infinitely
+-------------------------------------------------------------------
+1e  : 5555;  -- Data value of B - 5555
+1f  : 000B;  -- Data value of C - 000B
+20  : 0000;  -- Data value of A - 0000
+21  : 7FFF;  -- Data value of X - 7FFF
+22  : 1111;  -- Data value of Y - 1111
+25  : 6666;  -- Data value of H - 6666

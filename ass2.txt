@@ -1,0 +1,12 @@
+--
+var B @ 10 = 5555
+var C @ 11 = 1111
+
+L01:PUSH	B
+	PUSH	C
+	ADD	
+	POP	O
+	JMP	L02
+\n
+\r
+L02:JMP	L02

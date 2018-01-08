@@ -1,0 +1,16 @@
+variable B : 5555
+Variable C : 1111
+VariABle A : 0000
+variable X : 8888
+
+LOAD B
+ADD C
+STORE A
+L1: OR B
+L1: JUMP L5
+ADDI 20
+JNEG L1
+L9: ADD X
+L5: SUBT B
+JUMP L3
+L3: ADD D
